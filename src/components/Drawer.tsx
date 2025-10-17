@@ -2,6 +2,7 @@ import Header from "./header/Header.tsx"
 import Sidebar from "./header/Sidebar.tsx"
 
 import Content from "./Content.tsx"
+import Top_header from "./header/Top_header.tsx"
 
 function Drawer() {
   return (
@@ -10,6 +11,7 @@ function Drawer() {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
+          <Top_header />
           <Header />
           {/* Page content here */}
           <div className="p-8 max-w-5xl mx-auto">

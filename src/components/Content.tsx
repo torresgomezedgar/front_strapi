@@ -82,10 +82,10 @@ function Content() {
                             <p className="text-sm opacity-80">{post.excerpt}</p>
                             <div className="card-actions justify-between items-center mt-2">
                                 <div className="flex items-center gap-3">
-                                    <div className="avatar"><div className="w-8 rounded-full bg-neutral text-white">AR</div></div>
+                                    <div className="avatar"><div className="w-8 rounded-full bg-neutral text-white">ET</div></div>
                                     <div className="text-xs opacity-80">
-                                        <div>{ }</div>
-                                        <div className="text-[11px]">{fecha(post.createdAt)} · {post.readTime}</div>
+                                        <div>{}</div>
+                                        <div className="text-[11px]">{fecha(post.createdAt)}  {post.readTime}</div>
                                     </div>
                                 </div>
                                 <button className="btn btn-sm btn-ghost">Leer</button>
