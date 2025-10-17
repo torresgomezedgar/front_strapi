@@ -1,4 +1,4 @@
-function Hero() {
+function Content() {
     return (
         <>
             <div
@@ -24,4 +24,4 @@ function Hero() {
     )
 }
 
-export default Hero
+export default Content
