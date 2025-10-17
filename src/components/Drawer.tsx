@@ -12,7 +12,7 @@ function Drawer() {
           {/* Navbar */}
           <Header />
           {/* Page content here */}
-          <div className="p-8">
+          <div className="p-8 max-w-5xl mx-auto">
             <Content />
           </div>
           

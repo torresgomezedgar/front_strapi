@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchApi } from "../services/strapi.js";
 
-
-
-
 const samplePosts = [
     {
         id: 1,
@@ -41,45 +38,35 @@ const samplePosts = [
 ];
 
 
-
-
-
-
-
-
 function Content() {
 
     const [contenido, setContenido] = useState(null);
     useEffect(() => {
         async function cargarData() {
-          const resp = await fetchApi("articles")
-          if (resp?.data) {
-            const data = resp.data
-            console.log(data)
-            setContenido(data);
-            // Solo mostrar si no ha sido visto antes
-            
-          }
+            const resp = await fetchApi("articles")
+            if (resp?.data) {
+                const data = resp.data
+                console.log(data)
+                setContenido(data);
+                // Solo mostrar si no ha sido visto antes
+            }
         }
         cargarData()
-      }, []);
+    }, []);
 
-      if (!contenido) return null;
+    if (!contenido) return null;
 
-      function fecha(iso: string): string {
+    function fecha(iso: string): string {
         const fecha = new Date(iso);
         return fecha.toLocaleString("es-CO", {
             dateStyle: "short",
             timeStyle: "medium",
             timeZone: "America/Bogota"
         });
-      }
-      
-      
-      
+    }
+
     return (
         <>
-
             {/* Grid de posts */}
             <div className="mt-8 grid sm:grid-cols-2 gap-6">
                 {contenido.map((post) => (
@@ -97,7 +84,7 @@ function Content() {
                                 <div className="flex items-center gap-3">
                                     <div className="avatar"><div className="w-8 rounded-full bg-neutral text-white">AR</div></div>
                                     <div className="text-xs opacity-80">
-                                        <div>{}</div>
+                                        <div>{ }</div>
                                         <div className="text-[11px]">{fecha(post.createdAt)} · {post.readTime}</div>
                                     </div>
                                 </div>
