@@ -1,8 +1,8 @@
-import Header from "./header/Header.tsx"
-import Sidebar from "./header/Sidebar.tsx"
+import Header from "./header/Header"
+import Sidebar from "./header/Sidebar"
 
 import Content from "./content/Content.js"
-import Top_header from "./header/Top_header.tsx"
+import Top_header from "./header/Top_header"
 
 function Drawer() {
   return (

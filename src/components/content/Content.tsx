@@ -71,15 +71,18 @@ function Content() {
         <>
             {/* Grid de posts */}
             <div className="mt-8 grid sm:grid-cols-2 gap-6">
-                {contenido.map((post) => (
-                    <article key={post.id} className="card card-compact bg-base-100 shadow-md rounded-xl overflow-hidden">
+                {
+                contenido.map((post:any) => (
+                   
+
+                    <article key={post.id} className="card bg-base-100 image-full shadow-md rounded-xl">
                         <figure className="h-44">
                             <img src={post.cover.url} alt={post.title} className="object-cover w-full h-full" />
                         </figure>
                         <div className="card-body">
                             <div className="flex justify-between items-start">
-                                <h3 className="card-title sm:text-base md:text-lg leading-tight line-clamp-2">{post.title}</h3>
-                                <div className="badge badge-outline">{post.category.name}</div>
+                                <h4 className="card-title sm:text-base md:text-lg leading-tight">{post.title}</h4>
+                                <div className="badge badge-neutral">{post.category.name}</div>
                             </div>
                             <p className="text-sm opacity-80">{post.excerpt}</p>
                             <div className="card-actions justify-between items-center mt-2">
@@ -90,7 +93,7 @@ function Content() {
                                         <div className="text-[11px]">{fecha(post.createdAt)}  {post.readTime}</div>
                                     </div>
                                 </div>
-                                <button className="btn btn-sm btn-ghost" onClick={() => setSelected(post)}>Leer</button>
+                                <button className="btn btn-md btn-ghost" onClick={() => setSelected(post)}>Leer</button>
                             </div>
                         </div>
                     </article>
