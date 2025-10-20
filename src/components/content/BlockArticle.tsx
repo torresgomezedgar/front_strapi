@@ -1,15 +1,11 @@
-
-/* interface BlockArticleProps {
-  post:any;
-  onClose: () => void;
-} */
-
-
+import { BlocksRenderer} from "@strapi/blocks-react-renderer";
 
 export default function BlockArticle({post}:any) {
   if (!post) return null;
 
-  const block = post.blocks?.[0];
+ const block = post?.blocks?.[0]
+
+  //console.log(post.blocks[0])
 
   return (
     <>
