@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { fetchApi } from "../services/strapi.js";
+import { fetchApi } from "../../services/strapi.js";
+import BlockArticle from "./BlockArticle";
+
 
 const samplePosts = [
     {
@@ -39,7 +41,7 @@ const samplePosts = [
 
 
 function Content() {
-
+    const [selected, setSelected] = useState(null);
     const [contenido, setContenido] = useState(null);
     useEffect(() => {
         async function cargarData() {
@@ -76,7 +78,7 @@ function Content() {
                         </figure>
                         <div className="card-body">
                             <div className="flex justify-between items-start">
-                                <h3 className="card-title text-lg">{post.title}</h3>
+                                <h3 className="card-title sm:text-base md:text-lg leading-tight line-clamp-2">{post.title}</h3>
                                 <div className="badge badge-outline">{post.category.name}</div>
                             </div>
                             <p className="text-sm opacity-80">{post.excerpt}</p>
@@ -88,12 +90,35 @@ function Content() {
                                         <div className="text-[11px]">{fecha(post.createdAt)}  {post.readTime}</div>
                                     </div>
                                 </div>
-                                <button className="btn btn-sm btn-ghost">Leer</button>
+                                <button className="btn btn-sm btn-ghost" onClick={() => setSelected(post)}>Leer</button>
                             </div>
                         </div>
                     </article>
                 ))}
             </div>
+            {/* Modal para mostrar el artículo completo */}
+      {selected && (
+        <dialog open className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box max-w-4xl">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold">{selected.title}</h2>
+              <button className="btn btn-sm btn-error" onClick={() => setSelected(null)}>
+                ✕
+              </button>
+            </div>
+
+            {/* Aquí insertamos el contenido completo usando BlockReact */}
+            <BlockArticle post={selected} />
+
+            <div className="modal-action">
+              <button className="btn" onClick={() => setSelected(null)}>
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </dialog>
+      )}
+            
         </>
     )
 }
