@@ -72,58 +72,61 @@ function Content() {
             {/* Grid de posts */}
             <div className="mt-8 grid sm:grid-cols-2 gap-6">
                 {
-                contenido.map((post:any) => (
-                   
-
-                    <article key={post.id} className="card bg-base-100 image-full shadow-md rounded-xl">
-                        <figure className="h-44">
-                            <img src={post.cover.url} alt={post.title} className="object-cover w-full h-full" />
-                        </figure>
-                        <div className="card-body">
-                            <div className="flex justify-between items-start">
-                                <h4 className="card-title sm:text-base md:text-lg leading-tight">{post.title}</h4>
-                                <div className="badge badge-neutral">{post.category.name}</div>
-                            </div>
-                            <p className="text-sm opacity-80">{post.excerpt}</p>
-                            <div className="card-actions justify-between items-center mt-2">
-                                <div className="flex items-center gap-3">
-                                    <div className="avatar"><div className="w-8 rounded-full bg-neutral text-white">ET</div></div>
-                                    <div className="text-xs opacity-80">
-                                        <div>{}</div>
-                                        <div className="text-[11px]">{fecha(post.createdAt)}  {post.readTime}</div>
+                    contenido.map((post: any) => (
+                        <article key = { post.id } className="max-w-sm bg-white border border-gray-200 rounded-xl shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <figure className=" relative h-44">
+                                <img src={post.cover.url} alt={post.title} className="object-cover w-full h-full" />
+                                <div className="absolute top-2 right-2">
+                                    <div className="badge badge-sm sm:badge-md shadow">
+                                    {post.category.name}
                                     </div>
                                 </div>
-                                <button className="btn btn-md btn-ghost" onClick={() => setSelected(post)}>Leer</button>
+                            </figure>
+                            <div className="p-4">
+                                <a href="#">
+                                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{post.title}</h5>
+                                </a>
+                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                <div className="card-actions justify-between items-center mt-2">
+                                    <button className="btn btn-md btn-primary" onClick={() => setSelected(post)}>Leer más</button>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar"><div className="w-8 rounded-full bg-neutral text-white">ET</div></div>
+                                        <div className="text-xs opacity-80">
+                                            <div>{ }</div>
+                                            <div className="text-[11px]">{fecha(post.createdAt)}  {post.readTime}</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </article>
-                ))}
+                        </article>
+                    ))}
             </div>
             {/* Modal para mostrar el artículo completo */}
-      {selected && (
-        <dialog open className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box max-w-4xl">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold">{selected.title}</h2>
-              <button className="btn btn-sm btn-error" onClick={() => setSelected(null)}>
-                ✕
-              </button>
-            </div>
+            {selected && (
+                <dialog open className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box max-w-4xl">
+                        <div className="flex justify-between items-center mb-4">
+                            <h2 className="text-2xl font-bold">{selected.title}</h2>
+                            <button className="btn btn-sm btn-error" onClick={() => setSelected(null)}>
+                                ✕
+                            </button>
+                        </div>
 
-            {/* Aquí insertamos el contenido completo usando BlockReact */}
-            <BlockArticle post={selected} />
+                        {/* Aquí insertamos el contenido completo usando BlockReact */}
+                        <BlockArticle post={selected} />
 
-            <div className="modal-action">
-              <button className="btn" onClick={() => setSelected(null)}>
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </dialog>
-      )}
-            
+                        <div className="modal-action">
+                            <button className="btn" onClick={() => setSelected(null)}>
+                                Cerrar
+                            </button>
+                        </div>
+                    </div>
+                </dialog>
+            )}
+
         </>
     )
 }
 
 export default Content
+
