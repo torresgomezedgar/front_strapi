@@ -15,7 +15,7 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post }) => {
           src="${url}?w=600&auto=format&fit=crop" 
           loading="lazy" 
           decoding="async" 
-          style="max-width:100%;height:auto;border-radius:1rem;box-shadow:0 4px 8px rgba(0,0,0,0.1);" 
+          style="max-width:80%;height:auto;border-radius:1rem;box-shadow:0 4px 8px rgba(0,0,0,0.1);" 
         `
     );
   };
@@ -24,9 +24,18 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post }) => {
 
   return (
     <div className="prose prose-base mx-auto max-w-3xl
-                    prose-img:rounded-2xl prose-img:shadow-md
-                    prose-img:w-1/2 prose-img:mx-auto
-                    prose-img:aspect-[4/3] prose-img:object-cover" 
+                    
+                    prose-img:mx-auto
+                    prose-img:aspect-[4/3] 
+                    prose-img:object-cover 
+                    prose-h1:text-3xl sm:prose-h1:text-4xl
+                    prose-h2:text-2xl sm:prose-h2:text-3xl
+                    prose-p:text-base sm:prose-p:text-lg
+                    prose-ul:text-base sm:prose-ul:text-lg
+                    prose-p:text-justify
+                    prose-pre:overflow-x-auto prose-pre:max-w-full
+                  "  
+
                     dangerouslySetInnerHTML={{ __html: optimizarImagenes(post.body)}} />
   );
 }
