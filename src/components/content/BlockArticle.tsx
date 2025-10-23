@@ -12,7 +12,7 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post }) => {
   console.log(post)
 
   return (
-    <div className="prose prose-base max-w-none " dangerouslySetInnerHTML={{ __html: post.body }} />
+    <div className="prose prose-base max-w-none mx-auto" dangerouslySetInnerHTML={{ __html: post.body }} />
   );
 }
 
