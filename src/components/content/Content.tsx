@@ -48,7 +48,7 @@ function Content() {
             const resp = await fetchApi("articles")
             if (resp?.data) {
                 const data = resp.data
-                console.log(data)
+                //console.log(data)
                 setContenido(data);
                 // Solo mostrar si no ha sido visto antes
             }
@@ -76,7 +76,7 @@ function Content() {
                     contenido.map((post: any) => (
                         <article key = { post.id } className="max-w-sm bg-white border border-gray-200 rounded-xl shadow-md dark:bg-gray-800 dark:border-gray-700">
                             <figure className=" relative h-44">
-                                <img src={post.cover.url} alt={post.title} className="object-cover w-full h-full" />
+                                <img src={post.cover.formats.small.url} alt={post.title} className="object-cover w-full h-full" />
                                 <div className="absolute top-2 right-2">
                                     <div className="badge badge-sm sm:badge-md shadow">
                                     {post.category.name}
