@@ -68,20 +68,6 @@ function Content() {
     });
   }
 
-  if (selected){
-    return(
-        <article>
-            
-        
-        <div className="text-sm text-gray-500 text-center mb-6">
-          Publicado el {new Date(selected.createdAt).toLocaleDateString()} •{" "}
-          {selected.readTime}
-        </div>
-            <BlockArticle post={selected.blocks?.[0]} onBack={()=>setSelected(null)} />
-        </article>
-    )
-  }
-
   return (
     <>
       {/* Grid de posts */}
@@ -137,7 +123,33 @@ function Content() {
           </article>
         ))}
       </div>
-      
+      {/* Modal para mostrar el artículo completo */}
+      {selected && (
+        <dialog open className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box max-w-4xl">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold">{selected.title}</h2>
+              <button
+                className="btn btn-sm btn-error"
+                onClick={() => setSelected(null)}
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Aquí insertamos el contenido completo usando BlockReact */}
+            <BlockArticle post={selected.blocks?.[0]} />
+
+            <div className="modal-action">
+              <button className="btn" onClick={() => setSelected(null)}>
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </dialog>
+        
+
+      )}
     </>
   );
 }

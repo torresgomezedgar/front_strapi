@@ -2,9 +2,10 @@ import React from "react";
 
 interface BlockArticleProps {
   post?: string;
+  onBack: () => void;
 }
 
-const BlockArticle: React.FC<BlockArticleProps> = ({ post }) => {
+const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
   if (!post) return null;
 
   const optimizarImagenes = (html: string) => {
@@ -23,8 +24,13 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post }) => {
   //console.log(post)
 
   return (
+    <><button
+          onClick={onBack}
+          className="btn btn-sm mb-6"
+        >
+          ← Volver
+        </button>
     <div className="prose prose-base mx-auto max-w-3xl
-                    
                     prose-img:mx-auto
                     prose-img:aspect-[4/3] 
                     prose-img:object-cover 
@@ -34,9 +40,11 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post }) => {
                     prose-ul:text-base sm:prose-ul:text-lg
                     prose-p:text-justify
                     prose-pre:overflow-x-auto prose-pre:max-w-full
+                    
                   "  
 
                     dangerouslySetInnerHTML={{ __html: optimizarImagenes(post.body)}} />
+                    </>
   );
 }
 
