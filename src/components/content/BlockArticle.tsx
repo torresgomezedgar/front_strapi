@@ -42,7 +42,7 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
         >
           ← Volver
         </button>
-    <div className="prose prose-base mx-auto max-w-3xl
+    <div className="prose prose-base mx-auto max-w-none
                     prose-img:mx-auto
                     prose-img:aspect-auto
                     prose-img:object-cover 
@@ -51,11 +51,9 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
                     
                     prose-pre:rounded-lg
                     prose-pre:text-xs
-                    prose-pre:whitespace-pre-wrap 
-                    sm:prose-pre:whitespace-pre
-                    xs:prose-pre:max-w-full
-                    sm:prose-pre:max-w-full
-                    md:prose-pre:max-w-full
+                    prose-pre:whitespace-pre
+                    prose-pre:max-w-80
+                    
                   "  
 
                     dangerouslySetInnerHTML={{ __html: optimizarImagenes(post.body)}} />
