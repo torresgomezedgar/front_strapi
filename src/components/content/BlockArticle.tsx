@@ -48,13 +48,14 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
                     prose-img:object-cover 
                     
                     prose-p:text-justify
-                    prose-pre:overflow-x-auto 
-                    prose-pre:max-w-[90vw]
                     prose-pre:p-3
                     prose-pre:rounded-lg
                     prose-pre:text-sm
-                    prose-pre:whitespace-pre-wrap sm:prose-pre:whitespace-pre
-                    
+                    prose-pre:whitespace-pre-wrap 
+                   
+                    md:prose-pre:max-w-3x1
+                    sm:prose-pre:max-w-3xl 
+                    sm:prose-pre:whitespace-pre
                   "  
 
                     dangerouslySetInnerHTML={{ __html: optimizarImagenes(post.body)}} />
