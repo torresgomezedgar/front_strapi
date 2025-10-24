@@ -46,12 +46,14 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
                     prose-img:mx-auto
                     prose-img:aspect-auto
                     prose-img:object-cover 
-                    prose-h1:text-3xl sm:prose-h1:text-4xl
-                    prose-h2:text-2xl sm:prose-h2:text-3xl
-                    prose-p:text-base sm:prose-p:text-lg
-                    prose-ul:text-base sm:prose-ul:text-lg
+                    
                     prose-p:text-justify
-                    prose-pre:overflow-x-auto prose-pre:max-w-full
+                    prose-pre:overflow-x-auto 
+                    prose-pre:max-w-[90vw]
+                    prose-pre:p-3
+                    prose-pre:rounded-lg
+                    prose-pre:text-sm
+                    prose-pre:whitespace-pre-wrap sm:prose-pre:whitespace-pre
                     
                   "  
 
