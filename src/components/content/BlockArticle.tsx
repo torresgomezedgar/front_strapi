@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState, } from "react";
+
+import './content.css'
 
 interface BlockArticleProps {
   post?: string;
@@ -7,6 +9,14 @@ interface BlockArticleProps {
 
 const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
   if (!post) return null;
+
+
+  useEffect(()=>{
+    //setTimeout(() => {
+      window.scrollTo({ top: 50, behavior: "smooth" });
+      
+    //}, 50); // 100 ms suele ser suficiente
+  },[]);
 
   const optimizarImagenes = (html: string) => {
     return html.replace(
@@ -24,7 +34,9 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
   //console.log(post)
 
   return (
-    <><button
+    <>
+    <div className="article-animate">
+    <button 
           onClick={onBack}
           className="btn btn-sm mb-6"
         >
@@ -32,7 +44,7 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
         </button>
     <div className="prose prose-base mx-auto max-w-3xl
                     prose-img:mx-auto
-                    prose-img:aspect-[4/3] 
+                    prose-img:aspect-auto
                     prose-img:object-cover 
                     prose-h1:text-3xl sm:prose-h1:text-4xl
                     prose-h2:text-2xl sm:prose-h2:text-3xl
@@ -44,6 +56,7 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
                   "  
 
                     dangerouslySetInnerHTML={{ __html: optimizarImagenes(post.body)}} />
+                    </div>
                     </>
   );
 }

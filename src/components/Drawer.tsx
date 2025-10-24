@@ -1,7 +1,7 @@
 import Header from "./header/Header"
 import Sidebar from "./header/Sidebar"
 
-import Content from "./content/Content.js"
+import Content from "./content/Content"
 import Top_header from "./header/Top_header"
 
 function Drawer() {

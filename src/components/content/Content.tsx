@@ -68,24 +68,29 @@ function Content() {
     });
   }
 
-  if (selected){
-    return(
-        <article>
-            
-        
+  if (selected) {
+    return (
+      <article>
         <div className="text-sm text-gray-500 text-center mb-6">
           Publicado el {new Date(selected.createdAt).toLocaleDateString()} •{" "}
           {selected.readTime}
         </div>
-            <BlockArticle post={selected.blocks?.[0]} onBack={()=>setSelected(null)} />
-        </article>
+        <BlockArticle 
+          post={ selected.blocks?.[0] } 
+          onBack={ () => {
+            setSelected(null);
+            
+          }}
+          
+        />
+      </article>
     )
   }
 
   return (
     <>
       {/* Grid de posts */}
-      <div className="mt-8 grid sm:grid-cols-2 gap-6">
+      <div className="mt-8 grid sm:grid-cols-2 gap-6 ">
         {contenido.map((post: any) => (
           <article
             key={post.id}
@@ -115,7 +120,10 @@ function Content() {
               <div className="card-actions justify-between items-center mt-2">
                 <button
                   className="btn btn-md btn-primary"
-                  onClick={() => setSelected(post)}
+                  onClick={() => {
+                    setSelected(post);
+                    
+                  }}
                 >
                   Leer más
                 </button>
@@ -126,7 +134,7 @@ function Content() {
                     </div>
                   </div>
                   <div className="text-xs opacity-80">
-                    <div>{}</div>
+                    <div>{ }</div>
                     <div className="text-[11px]">
                       {fecha(post.createdAt)} {post.readTime}
                     </div>
@@ -137,7 +145,7 @@ function Content() {
           </article>
         ))}
       </div>
-      
+
     </>
   );
 }
