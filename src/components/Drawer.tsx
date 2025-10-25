@@ -6,16 +6,13 @@ import Top_header from "./header/Top_header"
 import { useState } from "react"
 
 function Drawer() {
-
-  const [padding, setPadding] = useState(false)
   
-  const ctlTop = () =>{
-    if (window.scrollY <=0)
-      setPadding(false)
-    else
-      setPadding(true)
-  }
-  console.log(padding)
+  // Controlar el padding superior del sidebar al hacer scroll
+  const [padding, setPadding] = useState(false)
+  const ctlTop = () => {if (window.scrollY > 0) setPadding(true)}
+
+  console.log("padding ", padding)
+  
   return (
     <>
       <div className="drawer">

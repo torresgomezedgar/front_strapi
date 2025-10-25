@@ -98,7 +98,7 @@ function Content() {
           >
             <figure className=" relative h-44">
               <img
-                src={post.cover.formats.small.url}
+                src={post.cover?.formats?.small?.url}
                 alt={post.title}
                 className="object-cover w-full h-full"
               />
@@ -115,7 +115,7 @@ function Content() {
                 </h5>
               </a>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {post.description}
+                {post?.description}
               </p>
               <div className="card-actions justify-between items-center mt-2">
                 <button

@@ -1,6 +1,6 @@
-import React, { useEffect, useState, } from "react";
+import React, { useEffect, useState } from "react";
 
-import './content.css'
+import "./content.css";
 
 interface BlockArticleProps {
   post?: string;
@@ -10,13 +10,12 @@ interface BlockArticleProps {
 const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
   if (!post) return null;
 
-
-  useEffect(()=>{
+  useEffect(() => {
     //setTimeout(() => {
-      window.scrollTo({ top: 50, behavior: "smooth" });
-      
+    window.scrollTo({ top: 50, behavior: "smooth" });
+
     //}, 50); // 100 ms suele ser suficiente
-  },[]);
+  }, []);
 
   const optimizarImagenes = (html: string) => {
     return html.replace(
@@ -35,31 +34,29 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
 
   return (
     <>
-    <div className="article-animate">
-    <button 
-          onClick={onBack}
-          className="btn btn-sm mb-6"
-        >
+      <div className="article-animate">
+        <button onClick={onBack} className="btn btn-sm mb-6">
           ← Volver
         </button>
-    <div className="prose prose-base mx-auto max-w-none
+        <div
+          className="prose prose-base mx-auto max-w-none
                     prose-img:mx-auto
                     prose-img:aspect-auto
                     prose-img:object-cover 
                     prose-pre:overflow-x-auto 
-                    prose-p:text-justify
+                    
                     
                     prose-pre:rounded-lg
                     prose-pre:text-xs
                     prose-pre:whitespace-pre
                     prose-pre:max-w-80
                     
-                  "  
-
-                    dangerouslySetInnerHTML={{ __html: optimizarImagenes(post.body)}} />
-                    </div>
-                    </>
+                  "
+          dangerouslySetInnerHTML={{ __html: optimizarImagenes(post.body) }}
+        />
+      </div>
+    </>
   );
-}
+};
 
-export default BlockArticle
+export default BlockArticle;
