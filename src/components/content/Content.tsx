@@ -92,38 +92,35 @@ function Content() {
       {/* Grid de posts */}
       <div className="mt-8 grid sm:grid-cols-2 gap-6 ">
         {contenido.map((post: any) => (
-          <article
+           <article
             key={post.id}
-            className="max-w-sm bg-white border border-gray-200 rounded-xl shadow-md dark:bg-gray-800 dark:border-gray-700"
+            className="card max-w-sm bg-base-100 border border-base-200 rounded-xl shadow-md flex flex-col h-full"
           >
-            <figure className=" relative h-44">
+            <figure className="relative h-44 aspect-square">
               <img
                 src={post.cover?.formats?.small?.url}
                 alt={post.title}
                 className="object-cover w-full h-full"
               />
               <div className="absolute top-2 right-2">
-                <div className="badge badge-sm sm:badge-md shadow">
+                <div className="badge badge-sm sm:badge-md shadow bg-base-200 text-base-content">
                   {post.category.name}
                 </div>
               </div>
             </figure>
-            <div className="p-4">
+            <div className="p-4 flex flex-col flex-grow">
               <a href="#">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="card-title text-base-content mb-2">
                   {post.title}
                 </h5>
               </a>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              <p className="mb-3 font-normal text-base-content/70 flex-grow">
                 {post?.description}
               </p>
-              <div className="card-actions justify-between items-center mt-2">
+              <div className="card-actions justify-between items-center mt-auto">
                 <button
-                  className="btn btn-md btn-primary"
-                  onClick={() => {
-                    setSelected(post);
-                    
-                  }}
+                  className="btn btn-md btn-primary w-full"
+                  onClick={() => setSelected(post)}
                 >
                   Leer más
                 </button>

@@ -19,7 +19,7 @@ function Drawer() {
         <input id="my-drawer-2" type="checkbox" onClick={ctlTop} className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
-          <Top_header />
+          {/* <Top_header />        */}
           <Header />
           {/* Page content here */}
           <div className="p-8 max-w-5xl mx-auto">
