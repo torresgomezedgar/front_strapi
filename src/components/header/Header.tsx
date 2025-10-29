@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchApi } from "../../services/strapi.js";
+import Menu from "../menu/Menu.js";
 
 
 interface HomeContenido {
@@ -66,8 +67,7 @@ function Header() {
         <div className="hidden flex-none lg:block">
           <ul className="menu menu-horizontal">
             {/* Navbar menu content here */}
-            <li><a>Navbar Item 1</a></li>
-            <li><a>Navbar Item 2</a></li>
+            <Menu />
           </ul>
         </div>
       </div>
