@@ -39,18 +39,23 @@ const BlockArticle: React.FC<BlockArticleProps> = ({ post, onBack }) => {
           ← Volver
         </button>
         <div
-          className="prose prose-base mx-auto max-w-none
+          className="prose mx-auto
                     prose-img:mx-auto
                     prose-img:aspect-auto
                     prose-img:object-cover 
                     prose-pre:overflow-x-auto 
-                    
-                    
                     prose-pre:rounded-lg
                     prose-pre:text-xs
                     prose-pre:whitespace-pre
-                    prose-pre:max-w-80
                     
+                    prose-pre:max-w-xs
+                    xs:prose-pre:max-w-md
+                    sm:prose-pre:max-w-xl 
+                    md:prose-pre:max-w-2xl 
+
+                    prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800
+                    prose-pre:text-gray-800 dark:prose-pre:text-gray-100
+                    prose-pre:p-4
                   "
           dangerouslySetInnerHTML={{ __html: optimizarImagenes(post.body) }}
         />
