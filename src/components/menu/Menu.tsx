@@ -1,5 +1,7 @@
 
+import { closeDrawer } from "./closeDrawer";
 import { DarkMode } from "./DarkMode";
+
 
 export default function Menu() {
    /*  
@@ -41,6 +43,13 @@ export default function Menu() {
 
 
   const { theme, toggleTheme, isDark } = DarkMode();
+
+  const handleDarkMode = () => {
+    toggleTheme();
+    closeDrawer();
+  }
+
+
   return (
     <>
         <li>
@@ -189,7 +198,7 @@ export default function Menu() {
                 <input
                   type="checkbox"
                     checked={isDark}
-                    onChange={toggleTheme}
+                    onChange={handleDarkMode}
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                 />
                 <svg
